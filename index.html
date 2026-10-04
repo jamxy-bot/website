@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XI TKJ 4 - Tahun Ajaran 2026/2027</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0a1628;--navy2:#0e2045;--blue:#1565c0;--sky:#29b6f6;--sky2:#81d4fa;--white:#ffffff;
+      --glass-bg:rgba(255,255,255,0.10);--glass-bg2:rgba(255,255,255,0.07);
+      --glass-border:rgba(255,255,255,0.22);--glass-border2:rgba(255,255,255,0.12);
+      --shadow:0 8px 32px rgba(0,0,0,0.35);--shadow-sm:0 4px 16px rgba(0,0,0,0.25);
+      --r:16px;--grad:linear-gradient(135deg,#0a1628 0%,#0e2045 30%,#1565c0 65%,#29b6f6 100%);
+      --font:"Outfit",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--grad);background-attachment:fixed;color:var(--white);min-height:100vh;line-height:1.6}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:rgba(41,182,246,0.5);border-radius:3px}
+    ::selection{background:rgba(41,182,246,0.35)}
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:999;height:68px;background:rgba(10,22,40,0.72);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--glass-border);display:flex;align-items:center;padding:0 24px}
+    .navbar-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1280px;margin:0 auto}
+    .navbar-logo-group{display:flex;align-items:center;gap:12px}
+    .navbar-logo-group img{height:46px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));transition:transform 0.25s;cursor:default}
+    .navbar-logo-group img:hover{transform:scale(1.08)}
+    .navbar-title{font-size:1rem;font-weight:700;letter-spacing:0.02em;line-height:1.25}
+    .navbar-title span{display:block;font-size:0.7rem;font-weight:400;opacity:0.7;letter-spacing:0.05em}
+    .navbar-nav{display:flex;align-items:center;gap:4px;list-style:none}
+    .navbar-nav a{display:block;padding:6px 14px;color:rgba(255,255,255,0.85);font-size:0.83rem;font-weight:500;text-decoration:none;border-radius:8px;transition:background 0.2s}
+    .navbar-nav a:hover,.navbar-nav a.nav-active{background:rgba(255,255,255,0.12);color:var(--white)}
+    .logo-right{height:46px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));transition:transform 0.25s;cursor:default}
+    .logo-right:hover{transform:scale(1.08)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;color:var(--white)}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px}
+    .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,22,40,0.96);backdrop-filter:blur(20px);z-index:998;flex-direction:column;padding:16px;border-bottom:1px solid var(--glass-border)}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{color:var(--white);text-decoration:none;padding:12px 16px;font-size:1rem;font-weight:500;border-radius:10px;transition:background 0.2s}
+    .mobile-nav a:hover{background:rgba(255,255,255,0.1)}
+    main{padding-top:68px}
+    section{padding:80px 24px;max-width:1280px;margin:0 auto}
+    #home{min-height:calc(100dvh - 68px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:100px 24px 80px;position:relative;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0.35;animation:float 8s ease-in-out infinite}
+    .orb-1{width:420px;height:420px;background:radial-gradient(circle,#29b6f6,transparent 70%);top:-100px;right:-80px}
+    .orb-2{width:280px;height:280px;background:radial-gradient(circle,#1565c0,transparent 70%);bottom:40px;right:200px;animation-delay:-3s}
+    .orb-3{width:180px;height:180px;background:radial-gradient(circle,#81d4fa,transparent 70%);top:60%;left:30%;animation-delay:-5.5s}
+    @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.04)}}
+    .hero-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sky2);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+    .hero-eyebrow::before{content:"";display:block;width:32px;height:1.5px;background:var(--sky2)}
+    .hero-title{font-size:clamp(3rem,8vw,6.5rem);font-weight:900;line-height:1;letter-spacing:-0.03em;margin-bottom:8px}
+    .hero-year{font-size:clamp(1rem,2.5vw,1.4rem);font-weight:400;opacity:0.72;margin-bottom:28px;letter-spacing:0.04em}
+    .hero-greeting{font-size:clamp(0.95rem,1.8vw,1.1rem);max-width:520px;line-height:1.7;opacity:0.82;margin-bottom:36px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:56px}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;background:linear-gradient(135deg,var(--sky),var(--blue));color:var(--white);font-weight:700;font-size:0.92rem;text-decoration:none;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 24px rgba(41,182,246,0.4);font-family:var(--font)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(41,182,246,0.55)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:100px;background:transparent;border:1.5px solid var(--glass-border);color:var(--white);font-weight:600;font-size:0.92rem;text-decoration:none;cursor:pointer;transition:background 0.2s,transform 0.2s;font-family:var(--font)}
+    .btn-ghost:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
+    .btn-instagram{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:100px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:var(--white);font-weight:700;font-size:0.88rem;text-decoration:none;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(131,58,180,0.45);font-family:var(--font)}
+    .btn-instagram:hover{transform:translateY(-2px)}
+    .btn-instagram svg{width:18px;height:18px;flex-shrink:0}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:32px}
+    .hero-stat{display:flex;flex-direction:column;gap:2px}
+    .hero-stat-num{font-size:1.8rem;font-weight:800;line-height:1;color:var(--sky2)}
+    .hero-stat-label{font-size:0.75rem;opacity:0.65;letter-spacing:0.05em}
+    .hero-photo-wrap{position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:min(42vw,580px)}
+    .hero-photo-frame{width:100%;aspect-ratio:4/3;border-radius:24px;background:var(--glass-bg);border:1.5px solid var(--glass-border);backdrop-filter:blur(12px);overflow:hidden;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;padding:24px}
+    .photo-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,0.45);text-align:center}
+    .photo-placeholder p{font-size:0.8rem;max-width:200px}
+    .section-header{margin-bottom:48px}
+    .section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:10px}
+    .section-sub{font-size:1rem;opacity:0.65;max-width:520px}
+    .section-divider{width:48px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--sky),var(--blue));margin-top:14px}
+    .glass{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(16px) saturate(1.2);border-radius:var(--r);box-shadow:var(--shadow-sm)}
+    .day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .day-tab{padding:8px 20px;border-radius:100px;font-size:0.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--glass-border);background:transparent;color:rgba(255,255,255,0.7);transition:all 0.2s;font-family:var(--font)}
+    .day-tab:hover{background:rgba(255,255,255,0.1);color:var(--white)}
+    .day-tab.active{background:linear-gradient(135deg,var(--sky),var(--blue));border-color:transparent;color:var(--white);box-shadow:0 4px 16px rgba(41,182,246,0.4)}
+    .schedule-panel{display:none}.schedule-panel.active{display:block}
+    .table-wrap{overflow-x:auto;border-radius:var(--r)}
+    table{width:100%;border-collapse:collapse;font-size:0.9rem}
+    thead tr{background:rgba(21,101,192,0.45)}
+    th{padding:14px 18px;text-align:left;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;opacity:0.85}
+    td{padding:13px 18px;vertical-align:middle}
+    tbody tr{border-top:1px solid rgba(255,255,255,0.07);transition:background 0.15s}
+    tbody tr:hover{background:rgba(255,255,255,0.07)}
+    .jam-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-family:var(--mono);font-size:0.78rem;font-weight:500;background:rgba(41,182,246,0.18);color:var(--sky2);white-space:nowrap}
+    .mapel-name{font-weight:600}
+    .guru-name{opacity:0.72;font-size:0.85rem}
+    .piket-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .piket-card{padding:22px 20px;border-radius:var(--r)}
+    .piket-day{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sky2);margin-bottom:12px;font-family:var(--mono)}
+    .piket-names{display:flex;flex-direction:column;gap:7px}
+    .piket-name-item{display:flex;align-items:center;gap:10px;font-size:0.9rem;font-weight:500}
+    .piket-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--blue));flex-shrink:0}
+    .teacher-card{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;padding:40px}
+    .teacher-photo{width:180px;height:220px;border-radius:18px;overflow:hidden;flex-shrink:0;background:rgba(21,101,192,0.3);border:1.5px solid var(--glass-border);display:flex;align-items:center;justify-content:center}
+    .teacher-info{display:flex;flex-direction:column;gap:14px}
+    .teacher-name{font-size:1.8rem;font-weight:800;letter-spacing:-0.01em}
+    .teacher-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{padding:5px 14px;border-radius:100px;font-size:0.78rem;font-weight:600;background:rgba(41,182,246,0.18);border:1px solid rgba(41,182,246,0.3);color:var(--sky2)}
+    .teacher-bio{font-size:0.95rem;opacity:0.8;line-height:1.75;max-width:540px}
+    .teacher-quote{padding:18px 22px;border-radius:12px;background:rgba(21,101,192,0.25);border-left:3px solid var(--sky);font-size:0.95rem;font-style:italic;opacity:0.9;line-height:1.7}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .gallery-item{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;background:var(--glass-bg2);border:1px solid var(--glass-border2);transition:transform 0.25s,box-shadow 0.25s}
+    .gallery-item:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 36px rgba(0,0,0,0.4)}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s}
+    .gallery-item:hover img{transform:scale(1.06)}
+    .gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:28px 14px 12px;background:linear-gradient(to top,rgba(0,0,0,0.75),transparent);font-size:0.82rem;font-weight:500;opacity:0;transform:translateY(4px);transition:all 0.25s}
+    .gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0)}
+    .gallery-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;height:100%;color:rgba(255,255,255,0.35);padding:16px;text-align:center}
+    .gallery-placeholder p{font-size:0.78rem}
+    .lightbox{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;backdrop-filter:blur(8px);cursor:zoom-out}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92vw;max-height:88vh;border-radius:14px;object-fit:contain;box-shadow:0 0 80px rgba(0,0,0,0.8)}
+    .lightbox-caption{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);padding:8px 20px;border-radius:100px;font-size:0.85rem;white-space:nowrap}
+    .lightbox-close{position:absolute;top:20px;right:24px;font-size:2rem;color:var(--white);cursor:pointer;background:none;border:none;line-height:1;opacity:0.7;transition:opacity 0.2s}
+    .lightbox-close:hover{opacity:1}
+    .student-meta{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+    .student-count-badge{display:flex;align-items:center;gap:8px;padding:8px 20px;border-radius:100px;background:rgba(41,182,246,0.18);border:1px solid rgba(41,182,246,0.3);font-weight:700;font-size:0.9rem}
+    .student-count-badge span{color:var(--sky2);font-size:1.2rem}
+    .student-search{padding:10px 18px;border-radius:100px;background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--white);font-family:var(--font);font-size:0.9rem;outline:none;min-width:200px;backdrop-filter:blur(8px);transition:border-color 0.2s,box-shadow 0.2s}
+    .student-search:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(41,182,246,0.2)}
+    .student-search::placeholder{color:rgba(255,255,255,0.4)}
+    .no-absen{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:rgba(21,101,192,0.35);font-family:var(--mono);font-size:0.78rem;font-weight:600;color:var(--sky2)}
+    .jabatan-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.73rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+    .jabatan-ketua{background:rgba(255,215,0,0.18);color:#ffd700;border:1px solid rgba(255,215,0,0.3)}
+    .jabatan-wakil{background:rgba(192,192,192,0.18);color:#c0c0c0;border:1px solid rgba(192,192,192,0.3)}
+    .jabatan-sekretaris{background:rgba(152,251,152,0.15);color:#90ee90;border:1px solid rgba(144,238,144,0.3)}
+    .jabatan-bendahara{background:rgba(255,165,0,0.18);color:#ffa500;border:1px solid rgba(255,165,0,0.3)}
+    footer{max-width:1280px;margin:0 auto;padding:40px 24px;border-top:1px solid var(--glass-border2);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;font-size:0.82rem;opacity:0.6}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--sky));display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:0.78rem;color:var(--white);flex-shrink:0}
+    .ig-link{color:var(--sky2);text-decoration:none;font-size:0.82rem;font-family:var(--mono);transition:opacity 0.2s}
+    .ig-link:hover{opacity:0.7}
+    .week-tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+    .week-tab{padding:9px 24px;border-radius:100px;font-size:0.88rem;font-weight:700;cursor:pointer;border:1.5px solid var(--glass-border);background:transparent;color:rgba(255,255,255,0.7);transition:all 0.2s;font-family:var(--font)}
+    .week-tab:hover{background:rgba(255,255,255,0.1);color:var(--white)}
+    .week-tab.active{background:rgba(21,101,192,0.55);border-color:rgba(41,182,246,0.6);color:var(--white);box-shadow:0 4px 20px rgba(21,101,192,0.4)}
+    .week-set{display:none}.week-set.active{display:block}
+    @media(max-width:768px){.navbar-nav{display:none}.hamburger{display:flex}#home{padding:80px 24px 60px;align-items:center;text-align:center}.hero-eyebrow{justify-content:center}.hero-buttons{justify-content:center}.hero-stats{justify-content:center;gap:24px}.hero-photo-wrap{display:none}.teacher-card{grid-template-columns:1fr;padding:28px 20px;text-align:center}.teacher-photo{width:140px;height:170px;margin:0 auto}.teacher-tags{justify-content:center}section{padding:64px 16px}.piket-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.piket-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr}.student-meta{flex-direction:column;align-items:flex-start}}
+
+    /* -- Progress bar -- */
+    #progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--sky),#a78bfa,var(--sky));z-index:10000;transition:width 0.1s linear;border-radius:0 2px 2px 0}
+    /* -- Navbar scrolled -- */
+    .navbar.scrolled{height:56px;background:rgba(7,15,30,0.92);box-shadow:0 4px 24px rgba(0,0,0,0.4)}
+    .navbar.scrolled .navbar-logo-group img,.navbar.scrolled .logo-right{height:38px}
+    .navbar,.navbar .navbar-logo-group img,.navbar .logo-right{transition:all 0.35s cubic-bezier(.4,0,.2,1)}
+    /* -- Back to top -- */
+    #back-top{position:fixed;bottom:28px;right:24px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--blue));border:none;color:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(41,182,246,0.45);opacity:0;transform:translateY(12px);transition:opacity 0.3s,transform 0.3s;z-index:900;font-size:1.1rem}
+    #back-top.visible{opacity:1;transform:translateY(0)}
+    #back-top:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(41,182,246,0.6)}
+    /* -- Schedule panel fade -- */
+    .schedule-panel{display:none;animation:fadeSlide .28s ease}
+    .schedule-panel.active{display:block}
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .week-set{display:none;animation:fadeSlide .28s ease}.week-set.active{display:block}
+    /* -- Ripple -- */
+    .btn-primary,.btn-ghost,.btn-instagram,.day-tab,.week-tab{position:relative;overflow:hidden}
+    .ripple-circle{position:absolute;border-radius:50%;background:rgba(255,255,255,0.35);transform:scale(0);animation:ripple-anim 0.55s linear;pointer-events:none}
+    @keyframes ripple-anim{to{transform:scale(3.5);opacity:0}}
+    /* ===== Daftar Siswa - Card Grid (bulat/persegi + IG link) ===== */
+    .siswa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:20px;perspective:1000px}
+    .siswa-card{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:30px 16px 22px;border-radius:var(--r);background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(16px) saturate(1.2);box-shadow:var(--shadow-sm);transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease;will-change:transform}
+    .siswa-card:hover{transform:translateY(-6px);border-color:rgba(41,182,246,0.5);box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(41,182,246,0.2)}
+    .siswa-no{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(21,101,192,0.4);font-family:var(--mono);font-size:0.7rem;font-weight:600;color:var(--sky2)}
+    .siswa-avatar{position:relative;width:88px;height:88px;border-radius:50%;background-image:linear-gradient(135deg,var(--blue),var(--sky));background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid rgba(255,255,255,0.25);box-shadow:0 6px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease,box-shadow 0.3s ease}
+    .siswa-card:hover .siswa-avatar{transform:scale(1.06);box-shadow:0 8px 28px rgba(41,182,246,0.45)}
+    .siswa-avatar.square{border-radius:18px}
+    .siswa-avatar[style*="background-image"] .siswa-initial{display:none}
+    .siswa-initial{font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:0.02em}
+    .siswa-name{font-size:0.95rem;font-weight:700;line-height:1.3;margin-top:2px}
+    .siswa-card .jabatan-badge{margin-top:-2px}
+    .siswa-ig{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:0.78rem;color:var(--sky2);text-decoration:none;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,0.06);transition:background 0.25s,color 0.25s,transform 0.25s}
+    .siswa-ig svg{width:14px;height:14px;flex-shrink:0}
+    .siswa-ig:hover{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:var(--white);transform:translateY(-2px)}
+    .siswa-empty{display:none;text-align:center;padding:40px 20px;opacity:0.6;font-size:0.9rem}
+    @media(max-width:768px){.siswa-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}.siswa-avatar{width:76px;height:76px}}
+    @media(max-width:480px){.siswa-grid{grid-template-columns:repeat(2,1fr)}.siswa-card{padding:24px 10px 18px}}
+    /* -- Glass card color variants -- */
+    .glass-teal{background:linear-gradient(145deg,rgba(0,188,212,0.09),rgba(21,101,192,0.10))}
+    .glass-violet{background:linear-gradient(145deg,rgba(124,58,237,0.09),rgba(10,22,40,0.12))}
+    .glass-amber{background:linear-gradient(145deg,rgba(245,158,11,0.08),rgba(21,101,192,0.10))}
+    /* -- Piket card color variants -- */
+    .piket-card:nth-child(1){background:linear-gradient(145deg,rgba(41,182,246,0.12),rgba(21,101,192,0.08))}
+    .piket-card:nth-child(2){background:linear-gradient(145deg,rgba(124,58,237,0.10),rgba(41,182,246,0.07))}
+    .piket-card:nth-child(3){background:linear-gradient(145deg,rgba(16,185,129,0.10),rgba(21,101,192,0.08))}
+    .piket-card:nth-child(4){background:linear-gradient(145deg,rgba(245,158,11,0.10),rgba(21,101,192,0.08))}
+    .piket-card:nth-child(5){background:linear-gradient(145deg,rgba(236,72,153,0.09),rgba(21,101,192,0.08))}
+    /* -- Tilt card -- */
+    .tilt-card{will-change:transform;transform-style:preserve-3d}
+    /* -- No-result message -- */
+  </style>
+</head><body>
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="Kembali ke atas" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-logo-group">
+      <img src="image-removebg-preview.png" alt="Logo Informatika TKJ" />
+      <div class="navbar-title">XI TKJ 4<span>TA 2026/2027</span></div>
+    </div>
+    <ul class="navbar-nav">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#jadwal">Jadwal</a></li>
+      <li><a href="#piket">Piket</a></li>
+      <li><a href="#wali">Wali Kelas</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#siswa">Siswa</a></li>
+    </ul>
+    <img class="logo-right" src="image-removebg-preview__1_.png" alt="Logo Sekolah Skill and Quality" />
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home" onclick="closeMobileNav()">Beranda</a>
+  <a href="#jadwal" onclick="closeMobileNav()">Jadwal Pelajaran</a>
+  <a href="#piket" onclick="closeMobileNav()">Jadwal Piket</a>
+  <a href="#wali" onclick="closeMobileNav()">Wali Kelas</a>
+  <a href="#galeri" onclick="closeMobileNav()">Galeri</a>
+  <a href="#siswa" onclick="closeMobileNav()">Daftar Siswa</a>
+</div>
+<main>
+<section id="home">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div style="position:relative;z-index:1;max-width:1280px;width:100%;margin:0 auto;">
+    <p class="hero-eyebrow">SMK Informatika / TKJ</p>
+    <h1 class="hero-title">XI TKJ 4</h1>
+    <p class="hero-year">Tahun Ajaran 2026 / 2027</p>
+    <p class="hero-greeting">Selamat datang di halaman resmi kelas XI TKJ 4. Bersama, kita bangun kompetensi digital terbaik dan kenangan yang tak terlupakan.</p>
+    <div class="hero-buttons">
+      <a href="#siswa" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Daftar Siswa
+      </a>
+      <a href="#jadwal" class="btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Lihat Jadwal
+      </a>
+      <a href="https://www.instagram.com/tekaj.efour/" target="_blank" rel="noopener" class="btn-instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @tekaj.efour
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-num" data-count="40">0</span><span class="hero-stat-label">Jumlah Siswa</span></div>
+      <div class="hero-stat"><span class="hero-stat-num" data-count="5">0</span><span class="hero-stat-label">Hari Belajar</span></div>
+      <div class="hero-stat"><span class="hero-stat-num" data-count="2026">0</span><span class="hero-stat-label">Tahun Masuk</span></div>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-frame">
+      <div class="photo-placeholder">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <p>Foto kelas ditampilkan di sini</p>
+        <p style="font-size:0.7rem;opacity:0.6;">Ganti dengan tag img</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="jadwal">
+  <div class="section-header reveal">
+    <h2 class="section-title">Jadwal Pelajaran</h2>
+    <p class="section-sub">Pilih hari untuk melihat jadwal pelajaran kelas XI TKJ 4.</p>
+    <div class="section-divider"></div>
+  </div>
+    <div class="week-tabs reveal">
+    <button class="week-tab active" onclick="switchWeek('umum',this)">Minggu Umum</button>
+    <button class="week-tab" onclick="switchWeek('produktif',this)">Minggu Produktif</button>
+  </div>
+  <div id="week-umum" class="week-set active">
+  <p style="font-size:0.8rem;opacity:0.6;margin:0 0 14px;">Jadwal Blok 1 Rev.01 &bull; Semester Ganjil TA 2026-2027</p>
+  <div class="day-tabs">
+    <button class="day-tab active" onclick="switchDay('senin',this)">Senin</button>
+    <button class="day-tab" onclick="switchDay('selasa',this)">Selasa</button>
+    <button class="day-tab" onclick="switchDay('rabu',this)">Rabu</button>
+    <button class="day-tab" onclick="switchDay('kamis',this)">Kamis</button>
+    <button class="day-tab" onclick="switchDay('jumat',this)">Jumat</button>
+  </div>
+  <div id="panel-senin" class="schedule-panel active glass reveal"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
+    <tbody>
+      <tr><td><span class="jam-badge">1</span></td><td>-</td><td class="mapel-name">Apel/Upacara &ndash; Lapangan Atas</td><td></td></tr>
+      <tr><td><span class="jam-badge">2-3</span></td><td>-</td><td class="mapel-name">MP Matematika</td><td class="guru-name">Sumarmi, S.Pd</td></tr>
+      <tr><td><span class="jam-badge">4-5</span></td><td>-</td><td class="mapel-name">Sejarah</td><td class="guru-name">Irwan Safari, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">6-7</span></td><td>-</td><td class="mapel-name">Bahasa Inggris</td><td class="guru-name">Nency Risandi, S.S.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">8-10</span></td><td>-</td><td class="mapel-name">Bahasa Indonesia</td><td class="guru-name">Dilla Rezki Aditama, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody>
+  </table></div></div>
+  <div id="panel-selasa" class="schedule-panel glass reveal"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
+    <tbody>
+      <tr><td><span class="jam-badge">1-3</span></td><td>-</td><td class="mapel-name">Bahasa Indonesia</td><td class="guru-name">Dilla Rezki Aditama, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">4-6</span></td><td>-</td><td class="mapel-name">Matematika</td><td class="guru-name">Rahmadewita, S.Si</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">7-8</span></td><td>-</td><td class="mapel-name">Sejarah</td><td class="guru-name">Irwan Safari, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">9-11</span></td><td>-</td><td class="mapel-name">Bahasa Inggris</td><td class="guru-name">Nency Risandi, S.S.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody>
+  </table></div></div>
+  <div id="panel-rabu" class="schedule-panel glass reveal"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
+    <tbody>
+      <tr><td><span class="jam-badge">1-3</span></td><td>-</td><td class="mapel-name">Matematika</td><td class="guru-name">Rahmadewita, S.Si</td></tr>
+      <tr><td><span class="jam-badge">4-5</span></td><td>-</td><td class="mapel-name">PJOK</td><td class="guru-name">Krisnari Eko Puspito, S.Pd</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">6-9</span></td><td>-</td><td class="mapel-name">Bahasa Inggris</td><td class="guru-name">Nency Risandi, S.S.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody>
+  </table></div></div>
+  <div id="panel-kamis" class="schedule-panel glass reveal"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
+    <tbody>
+      <tr><td><span class="jam-badge">1</span></td><td>-</td><td class="mapel-name">Apel Jurusan</td><td></td></tr>
+      <tr><td><span class="jam-badge">2-4</span></td><td>-</td><td class="mapel-name">Pendidikan Agama Kristen &amp; Budi Pekerti<br>Pendidikan Agama Islam &amp; Budi Pekerti</td><td class="guru-name">Sondang Sirait, S.Th, M.Pd<br>Umi Khoiriyah, S.Pd.I., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">5-6</span></td><td>-</td><td class="mapel-name">Pendidikan Pancasila</td><td class="guru-name">Razali, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">7-8</span></td><td>-</td><td class="mapel-name">MP Bahasa Jepang</td><td class="guru-name">Fadhilatul Annisa, S.Pd.</td></tr>
+      <tr><td><span class="jam-badge">9-10</span></td><td>-</td><td class="mapel-name">MP Bahasa Jepang</td><td class="guru-name">Fadhilatul Annisa, S.Pd.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody>
+  </table></div></div>
+  <div id="panel-jumat" class="schedule-panel glass reveal"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran</th><th>Guru</th></tr></thead>
+    <tbody>
+      <tr><td><span class="jam-badge">1-3</span></td><td>-</td><td class="mapel-name">Pendidikan Agama Kristen &amp; Budi Pekerti<br>Pendidikan Agama Islam &amp; Budi Pekerti</td><td class="guru-name">Sondang Sirait, S.Th, M.Pd<br>Umi Khoiriyah, S.Pd.I., Gr.</td></tr>
+      <tr><td><span class="jam-badge">4-5</span></td><td>-</td><td class="mapel-name">PJOK</td><td class="guru-name">Krisnari Eko Puspito, S.Pd</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">6-7</span></td><td>-</td><td class="mapel-name">MP Matematika</td><td class="guru-name">Sumarmi, S.Pd</td></tr>
+      <tr><td><span class="jam-badge">8-9</span></td><td>-</td><td class="mapel-name">Pendidikan Pancasila</td><td class="guru-name">Razali, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>13.10-15.45</td><td class="mapel-name">Belajar / Pembelajaran Lanjutan</td><td></td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody>
+  </table></div></div>
+
+  </div><!-- /week-umum -->
+  <div id="week-produktif" class="week-set">
+  <p style="font-size:0.8rem;opacity:0.6;margin:0 0 14px;">Jadwal Mapel Produktif Blok 2 &bull; Semester Ganjil TP 2026/2027</p>
+  <div class="day-tabs">
+    <button class="day-tab active" onclick="switchDay2('p-senin',this)">Senin</button>
+    <button class="day-tab" onclick="switchDay2('p-selasa',this)">Selasa</button>
+    <button class="day-tab" onclick="switchDay2('p-rabu',this)">Rabu</button>
+    <button class="day-tab" onclick="switchDay2('p-kamis',this)">Kamis</button>
+    <button class="day-tab" onclick="switchDay2('p-jumat',this)">Jumat</button>
+  </div>
+  <div id="panel-p-senin" class="schedule-panel active glass"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran Produktif</th><th>Guru</th></tr></thead><tbody>
+      <tr><td><span class="jam-badge">1</span></td><td>-</td><td class="mapel-name">Apel/Upacara &ndash; Lapangan Atas</td><td></td></tr>
+      <tr><td><span class="jam-badge">2-5</span></td><td>-</td><td class="mapel-name">Administrasi Infrastruktur Jaringan</td><td class="guru-name">Mugiyono, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>10.15-11.45</td><td class="mapel-name">Administrasi Infrastruktur Jaringan</td><td class="guru-name">Mugiyono, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>13.10-15.45</td><td class="mapel-name">Teknologi WAN</td><td class="guru-name">Alansyah Putra A, S.Tr.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody></table></div></div>
+  <div id="panel-p-selasa" class="schedule-panel glass"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran Produktif</th><th>Guru</th></tr></thead><tbody>
+      <tr><td><span class="jam-badge">1-10</span></td><td>-</td><td class="mapel-name">Kreativitas, Inovatif, dan Kewirausahaan</td><td class="guru-name">Zainul Arifin, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>10.15-11.45</td><td class="mapel-name">Kreativitas, Inovatif, dan Kewirausahaan</td><td class="guru-name">Zainul Arifin, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>13.10-15.45</td><td class="mapel-name">Kreativitas, Inovatif, dan Kewirausahaan</td><td class="guru-name">Zainul Arifin, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody></table></div></div>
+  <div id="panel-p-rabu" class="schedule-panel glass"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran Produktif</th><th>Guru</th></tr></thead><tbody>
+      <tr><td><span class="jam-badge">1-10</span></td><td>-</td><td class="mapel-name">Administrasi Sistem Jaringan</td><td class="guru-name">Mike Musna, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>10.15-11.45</td><td class="mapel-name">Administrasi Sistem Jaringan</td><td class="guru-name">Mike Musna, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>13.10-15.45</td><td class="mapel-name">Administrasi Sistem Jaringan</td><td class="guru-name">Mike Musna, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody></table></div></div>
+  <div id="panel-p-kamis" class="schedule-panel glass"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran Produktif</th><th>Guru</th></tr></thead><tbody>
+      <tr><td><span class="jam-badge">1</span></td><td>-</td><td class="mapel-name">Apel Jurusan</td><td></td></tr>
+      <tr><td><span class="jam-badge">2-3</span></td><td>-</td><td class="mapel-name">Administrasi Sistem Jaringan</td><td class="guru-name">Mike Musna, S.Pd., Gr.</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>10.15-11.45</td><td class="mapel-name">Teknologi WAN</td><td class="guru-name">Alansyah Putra A, S.Tr.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>13.10-15.45</td><td class="mapel-name">Teknologi WAN</td><td class="guru-name">Alansyah Putra A, S.Tr.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody></table></div></div>
+  <div id="panel-p-jumat" class="schedule-panel glass"><div class="table-wrap"><table>
+    <thead><tr><th>Jam</th><th>Waktu</th><th>Mata Pelajaran Produktif</th><th>Guru</th></tr></thead><tbody>
+      <tr><td><span class="jam-badge">1-8</span></td><td>-</td><td class="mapel-name">Administrasi Infrastruktur Jaringan</td><td class="guru-name">Mugiyono, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>10.00-10.15</td><td style="opacity:0.5;font-style:italic">Istirahat</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>10.15-11.45</td><td class="mapel-name">Administrasi Infrastruktur Jaringan</td><td class="guru-name">Mugiyono, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>11.45-13.10</td><td style="opacity:0.5;font-style:italic">ISHOMA</td><td></td></tr>
+      <tr><td><span class="jam-badge">-</span></td><td>13.10-15.45</td><td class="mapel-name">Administrasi Infrastruktur Jaringan</td><td class="guru-name">Mugiyono, S.Kom</td></tr>
+      <tr><td><span class="jam-badge">--</span></td><td>15.45</td><td style="opacity:0.5;font-style:italic">Pulang</td><td></td></tr>
+    </tbody></table></div></div>
+  </div><!-- /week-produktif --></section>
+<section id="piket" style="padding-top:0">
+  <div class="section-header reveal">
+    <h2 class="section-title">Jadwal Piket Kelas</h2>
+    <p class="section-sub">Petugas kebersihan dan kerapian kelas setiap harinya.</p>
+    <div class="section-divider"></div>
+  </div>
+  <div class="piket-grid">
+    <div class="piket-card glass reveal"><p class="piket-day">Senin</p><div class="piket-names"><div class="piket-name-item"><span class="piket-dot"></span>Alif Khairul Azzam</div><div class="piket-name-item"><span class="piket-dot"></span>Dinda Ariani Saragih</div><div class="piket-name-item"><span class="piket-dot"></span>Kasih Nur&#39;aini</div><div class="piket-name-item"><span class="piket-dot"></span>Naiqah Nadiah Putri</div><div class="piket-name-item"><span class="piket-dot"></span>Muhammad Nabil Ramadhan</div><div class="piket-name-item"><span class="piket-dot"></span>Nathasa Golda Caselia Br Sitompul</div><div class="piket-name-item"><span class="piket-dot"></span>Widayu Alifano</div><div class="piket-name-item"><span class="piket-dot"></span>Zaliana Febriyanti</div></div></div>
+    <div class="piket-card glass reveal"><p class="piket-day">Selasa</p><div class="piket-names"><div class="piket-name-item"><span class="piket-dot"></span>Anatasya Salsabila</div><div class="piket-name-item"><span class="piket-dot"></span>Faqiha Rahma Khoirunnisa</div><div class="piket-name-item"><span class="piket-dot"></span>Jihan Aprilia</div><div class="piket-name-item"><span class="piket-dot"></span>Jhon Roy Samosir</div><div class="piket-name-item"><span class="piket-dot"></span>Juniarti Tampubolon</div><div class="piket-name-item"><span class="piket-dot"></span>Mutiara Tunnisha Naraya</div><div class="piket-name-item"><span class="piket-dot"></span>Muhammad Taqi Nayani</div><div class="piket-name-item"><span class="piket-dot"></span>Ramadhan Luthfialdiansyah Gani</div></div></div>
+    <div class="piket-card glass reveal"><p class="piket-day">Rabu</p><div class="piket-names"><div class="piket-name-item"><span class="piket-dot"></span>Faa&#39;iq</div><div class="piket-name-item"><span class="piket-dot"></span>Keyna Rahzalia</div><div class="piket-name-item"><span class="piket-dot"></span>Marvel Jala Sinaga</div><div class="piket-name-item"><span class="piket-dot"></span>Muhammad Rezqan Fadhil</div><div class="piket-name-item"><span class="piket-dot"></span>Sairah</div><div class="piket-name-item"><span class="piket-dot"></span>Suci Ramadhani</div><div class="piket-name-item"><span class="piket-dot"></span>Syahwa Juarefi</div><div class="piket-name-item"><span class="piket-dot"></span>Syifa Ramadhani Alfitri</div></div></div>
+    <div class="piket-card glass reveal"><p class="piket-day">Kamis</p><div class="piket-names"><div class="piket-name-item"><span class="piket-dot"></span>Adira Pratama</div><div class="piket-name-item"><span class="piket-dot"></span>Deacon Al Hakim Stefan</div><div class="piket-name-item"><span class="piket-dot"></span>Bintang Trihadi</div><div class="piket-name-item"><span class="piket-dot"></span>Lutfiah Sakirah</div><div class="piket-name-item"><span class="piket-dot"></span>Muhammad Arjuna Wibawa</div><div class="piket-name-item"><span class="piket-dot"></span>Nuri Maulydah Hidayah</div><div class="piket-name-item"><span class="piket-dot"></span>Safira Hijriyani Panggabean</div><div class="piket-name-item"><span class="piket-dot"></span>Shyva Dwi Amanda</div></div></div>
+    <div class="piket-card glass reveal"><p class="piket-day">Jumat</p><div class="piket-names"><div class="piket-name-item"><span class="piket-dot"></span>Eka Purnama Dewi</div><div class="piket-name-item"><span class="piket-dot"></span>Gracia Samaria Simanjuntak</div><div class="piket-name-item"><span class="piket-dot"></span>Irene Debora Siahaan</div><div class="piket-name-item"><span class="piket-dot"></span>Mariana Jelena Sibuea</div><div class="piket-name-item"><span class="piket-dot"></span>Maulida Luthfiah</div><div class="piket-name-item"><span class="piket-dot"></span>Muhamad Fadhli</div><div class="piket-name-item"><span class="piket-dot"></span>Muhamad Rangga Wibowo</div><div class="piket-name-item"><span class="piket-dot"></span>Rafael Carlwilson Manurung</div></div></div>
+  </div>
+</section>
+
+<section id="wali">
+  <div class="section-header reveal">
+    <h2 class="section-title">Profil Wali Kelas</h2>
+    <p class="section-sub">Pembimbing dan wali kelas XI TKJ 4.</p>
+    <div class="section-divider"></div>
+  </div>
+  <div class="teacher-card glass reveal">
+    <div class="teacher-photo">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;height:100%;color:rgba(255,255,255,0.4);text-align:center;padding:16px;">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        <p style="font-size:0.72rem;">Foto wali kelas</p>
+      </div>
+    </div>
+    <div class="teacher-info">
+      <h3 class="teacher-name">Pak Zainul</h3>
+      <div class="teacher-tags">
+        <span class="tag">Pak Zainul</span>
+        <span class="tag">Mapel: -- isi mapel --</span>
+        <span class="tag">Wali Kelas XI TKJ 4</span>
+      </div>
+      <p class="teacher-bio">Pak Zainul adalah wali kelas XI TKJ 4 yang berdedikasi dalam membimbing siswa menuju kompetensi terbaik di bidang Teknik Komputer dan Jaringan. Dengan pengalaman mengajar yang luas, beliau selalu mendorong siswa untuk terus berinovasi dan berprestasi.</p>
+      <blockquote class="teacher-quote">
+        "Teknologi adalah alat; karakter adalah pondasinya. Jadilah yang terbaik bukan hanya dalam keahlian, tetapi juga dalam sikap dan integritas."
+        <br/><br/>
+        <strong style="opacity:0.7;font-size:0.85rem;font-style:normal;">— Pak Zainul, Wali Kelas XI TKJ 4</strong>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="section-header reveal">
+    <h2 class="section-title">Galeri Kebersamaan</h2>
+    <p class="section-sub">Momen berharga yang tak terlupakan bersama XI TKJ 4.</p>
+    <div class="section-divider"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" data-caption="Foto Bersama Kelas"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Foto Bersama Kelas</p></div><div class="gallery-caption">Foto Bersama Kelas</div></div>
+    <div class="gallery-item reveal" data-caption="Study Tour"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Study Tour</p></div><div class="gallery-caption">Study Tour</div></div>
+    <div class="gallery-item reveal" data-caption="Praktik Jaringan"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Praktik Jaringan</p></div><div class="gallery-caption">Praktik Jaringan</div></div>
+    <div class="gallery-item reveal" data-caption="Ulang Tahun Kelas"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Ulang Tahun Kelas</p></div><div class="gallery-caption">Ulang Tahun Kelas</div></div>
+    <div class="gallery-item reveal" data-caption="Perlombaan"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Perlombaan</p></div><div class="gallery-caption">Perlombaan</div></div>
+    <div class="gallery-item reveal" data-caption="Kegiatan Ekskul"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Kegiatan Ekskul</p></div><div class="gallery-caption">Kegiatan Ekskul</div></div>
+    <div class="gallery-item reveal" data-caption="Perpisahan Kelas XII"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Perpisahan Kelas XII</p></div><div class="gallery-caption">Perpisahan Kelas XII</div></div>
+    <div class="gallery-item reveal" data-caption="Momen Spesial"><div class="gallery-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p>Momen Spesial</p></div><div class="gallery-caption">Momen Spesial</div></div>
+  </div>
+  <p style="text-align:center;margin-top:24px;font-size:0.82rem;opacity:0.5;">Klik foto untuk memperbesar &bull; Tambah foto dengan mengganti src pada tag img</p>
+</section>
+<section id="siswa">
+  <div class="section-header reveal">
+    <h2 class="section-title">Daftar Siswa</h2>
+    <p class="section-sub">Anggota aktif kelas XI TKJ 4 tahun ajaran 2026/2027.</p>
+    <div class="section-divider"></div>
+  </div>
+  <div class="student-meta reveal">
+    <div class="student-count-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Total: <span id="totalSiswa">40</span> Siswa
+    </div>
+    <input type="text" class="student-search" id="searchSiswa" placeholder="Cari nama siswa..." oninput="filterSiswa(this.value)" autocomplete="off" />
+  </div>
+  <div class="siswa-grid" id="gridSiswa">
+          <div class="siswa-card reveal" data-nama="Adira Pratama">
+            <span class="siswa-no">01</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">AP</span>
+            </div>
+            <span class="jabatan-badge jabatan-ketua">KETUA KELAS</span>
+            <h3 class="siswa-name">Adira Pratama</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Muhammad Arjuna Wibawa">
+            <span class="siswa-no">02</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MA</span>
+            </div>
+            <span class="jabatan-badge jabatan-wakil">WAKIL KETUA</span>
+            <h3 class="siswa-name">Muhammad Arjuna Wibawa</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Shyva Dwi Amanda">
+            <span class="siswa-no">03</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">SD</span>
+            </div>
+            <span class="jabatan-badge jabatan-sekretaris">SEKRETARIS</span>
+            <h3 class="siswa-name">Shyva Dwi Amanda</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Syahwa Juarefi">
+            <span class="siswa-no">04</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">SJ</span>
+            </div>
+            <span class="jabatan-badge jabatan-bendahara">BENDAHARA</span>
+            <h3 class="siswa-name">Syahwa Juarefi</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Alif Khairul Azzam">
+            <span class="siswa-no">05</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">AK</span>
+            </div>
+            <h3 class="siswa-name">Alif Khairul Azzam</h3>
+            <a class="siswa-ig" href="https://instagram.com/4zzamm___" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@4zzamm___</a>
+          </div>
+          <div class="siswa-card reveal" data-nama="Anatasya Salsabila">
+            <span class="siswa-no">06</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">AS</span>
+            </div>
+            <h3 class="siswa-name">Anatasya Salsabila</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Bintang Trihadi">
+            <span class="siswa-no">07</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">BT</span>
+            </div>
+            <h3 class="siswa-name">Bintang Trihadi</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Deacon Al Hakim Stefan">
+            <span class="siswa-no">08</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">DA</span>
+            </div>
+            <h3 class="siswa-name">Deacon Al Hakim Stefan</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Dinda Ariani Saragih">
+            <span class="siswa-no">09</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">DA</span>
+            </div>
+            <h3 class="siswa-name">Dinda Ariani Saragih</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Eka Purnama Dewi">
+            <span class="siswa-no">10</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">EP</span>
+            </div>
+            <h3 class="siswa-name">Eka Purnama Dewi</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Faa&#39;iq">
+            <span class="siswa-no">11</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">FA</span>
+            </div>
+            <h3 class="siswa-name">Faa'iq</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Faqiha Rahma Khoirunnisa">
+            <span class="siswa-no">12</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">FR</span>
+            </div>
+            <h3 class="siswa-name">Faqiha Rahma Khoirunnisa</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Gracia Samaria Simanjuntak">
+            <span class="siswa-no">13</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">GS</span>
+            </div>
+            <h3 class="siswa-name">Gracia Samaria Simanjuntak</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Irene Debora Siahaan">
+            <span class="siswa-no">14</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">ID</span>
+            </div>
+            <h3 class="siswa-name">Irene Debora Siahaan</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Jhon Roy Samosir">
+            <span class="siswa-no">15</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">JR</span>
+            </div>
+            <h3 class="siswa-name">Jhon Roy Samosir</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Jihan Aprilia">
+            <span class="siswa-no">16</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">JA</span>
+            </div>
+            <h3 class="siswa-name">Jihan Aprilia</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Juniarti Tampubolon">
+            <span class="siswa-no">17</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">JT</span>
+            </div>
+            <h3 class="siswa-name">Juniarti Tampubolon</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Kasih Nur&#39;aini">
+            <span class="siswa-no">18</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">KN</span>
+            </div>
+            <h3 class="siswa-name">Kasih Nur'aini</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Keyna Rahzalia">
+            <span class="siswa-no">19</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">KR</span>
+            </div>
+            <h3 class="siswa-name">Keyna Rahzalia</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Lutfiah Sakirah">
+            <span class="siswa-no">20</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">LS</span>
+            </div>
+            <h3 class="siswa-name">Lutfiah Sakirah</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Mariana Jelena Sibuea">
+            <span class="siswa-no">21</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MJ</span>
+            </div>
+            <h3 class="siswa-name">Mariana Jelena Sibuea</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Marvel Jala Sinaga">
+            <span class="siswa-no">22</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MJ</span>
+            </div>
+            <h3 class="siswa-name">Marvel Jala Sinaga</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Maulida Luthfiah">
+            <span class="siswa-no">23</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">ML</span>
+            </div>
+            <h3 class="siswa-name">Maulida Luthfiah</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Muhamad Fadhli">
+            <span class="siswa-no">24</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MF</span>
+            </div>
+            <h3 class="siswa-name">Muhamad Fadhli</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Muhamad Rangga Wibowo">
+            <span class="siswa-no">25</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MR</span>
+            </div>
+            <h3 class="siswa-name">Muhamad Rangga Wibowo</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Muhammad Nabil Ramadhan">
+            <span class="siswa-no">26</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MN</span>
+            </div>
+            <h3 class="siswa-name">Muhammad Nabil Ramadhan</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Muhammad Rezqan Fadhil">
+            <span class="siswa-no">27</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MR</span>
+            </div>
+            <h3 class="siswa-name">Muhammad Rezqan Fadhil</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Muhammad Taqi Nayani">
+            <span class="siswa-no">28</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MT</span>
+            </div>
+            <h3 class="siswa-name">Muhammad Taqi Nayani</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Mutiara Tunnisha Naraya">
+            <span class="siswa-no">29</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">MT</span>
+            </div>
+            <h3 class="siswa-name">Mutiara Tunnisha Naraya</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Naiqah Nadiah Putri">
+            <span class="siswa-no">30</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">NN</span>
+            </div>
+            <h3 class="siswa-name">Naiqah Nadiah Putri</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Nathasa Golda Caselia Br Sitompul">
+            <span class="siswa-no">31</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">NG</span>
+            </div>
+            <h3 class="siswa-name">Nathasa Golda Caselia Br Sitompul</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Nuri Maulydah Hidayah">
+            <span class="siswa-no">32</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">NM</span>
+            </div>
+            <h3 class="siswa-name">Nuri Maulydah Hidayah</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Rafael Carlwilson Manurung">
+            <span class="siswa-no">33</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">RC</span>
+            </div>
+            <h3 class="siswa-name">Rafael Carlwilson Manurung</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Ramadhan Luthfialdiansyah Gani">
+            <span class="siswa-no">34</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">RL</span>
+            </div>
+            <h3 class="siswa-name">Ramadhan Luthfialdiansyah Gani</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Safira Hijriyani Panggabean">
+            <span class="siswa-no">35</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">SH</span>
+            </div>
+            <h3 class="siswa-name">Safira Hijriyani Panggabean</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Sairah">
+            <span class="siswa-no">36</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">SA</span>
+            </div>
+            <h3 class="siswa-name">Sairah</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Suci Ramadhani">
+            <span class="siswa-no">37</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">SR</span>
+            </div>
+            <h3 class="siswa-name">Suci Ramadhani</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Syifa Ramadhani Alfitri">
+            <span class="siswa-no">38</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">SR</span>
+            </div>
+            <h3 class="siswa-name">Syifa Ramadhani Alfitri</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Widayu Alifano">
+            <span class="siswa-no">39</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">WA</span>
+            </div>
+            <h3 class="siswa-name">Widayu Alifano</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+          <div class="siswa-card reveal" data-nama="Zaliana Febriyanti">
+            <span class="siswa-no">40</span>
+            <div class="siswa-avatar">
+              <span class="siswa-initial">ZF</span>
+            </div>
+            <h3 class="siswa-name">Zaliana Febriyanti</h3>
+            <span style="opacity:0.4;font-size:0.85rem;font-family:var(--mono);">-</span>
+          </div>
+  </div>
+  <p class="siswa-empty" id="siswaEmpty">Tidak ada siswa yang cocok dengan pencarian.</p>
+  <!-- Untuk memasang foto siswa: tambahkan style="background-image:url('foto/nama.jpg')"
+       pada elemen .siswa-avatar. Untuk bentuk persegi: tambahkan class "square". -->
+</section>
+
+
+</main>
+
+<footer>
+  <p>&#169; 2026 &bull; XI TKJ 4 &bull; Tahun Ajaran 2026/2027</p>
+  <p>Dibuat dengan penuh semangat oleh keluarga besar XI TKJ 4</p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" alt="" style="display:none;" />
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  var hamburger=document.getElementById('hamburger');
+  var mobileNav=document.getElementById('mobileNav');
+  hamburger.addEventListener('click',function(){var o=mobileNav.classList.toggle('open');hamburger.setAttribute('aria-expanded',o);});
+  function closeMobileNav(){mobileNav.classList.remove('open');hamburger.setAttribute('aria-expanded',false);}
+
+  var sections=document.querySelectorAll('section[id]');
+  var navLinks=document.querySelectorAll('.navbar-nav a');
+  function updateNavActive(){var c='';sections.forEach(function(s){if(s.getBoundingClientRect().top<=90)c=s.id;});navLinks.forEach(function(a){a.classList.toggle('nav-active',a.getAttribute('href')==='#'+c);});}
+  window.addEventListener('scroll',updateNavActive,{passive:true});
+
+  var revealEls=document.querySelectorAll('.reveal');
+  var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var siblings=Array.from(e.target.parentElement.querySelectorAll('.reveal'));var idx=siblings.indexOf(e.target);setTimeout(function(){e.target.classList.add('visible');},Math.min(idx*80,400));ro.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(function(el){ro.observe(el);});
+
+    function switchWeek(week,btn){
+    document.querySelectorAll('.week-set').forEach(function(s){s.classList.remove('active');});
+    document.querySelectorAll('.week-tab').forEach(function(t){t.classList.remove('active');});
+    document.getElementById('week-'+week).classList.add('active');
+    btn.classList.add('active');
+    // activate first day tab in the revealed set
+    var firstTab=document.querySelector('#week-'+week+' .day-tab');
+    if(firstTab){
+      var dayId=firstTab.getAttribute('onclick').match(/'([^']+)'/)[1];
+      if(week==='umum') switchDay(dayId,firstTab); else switchDay2(dayId,firstTab);
+    }
+  }
+  function switchDay(day,btn){
+    var set=document.getElementById('week-umum');
+    set.querySelectorAll('.schedule-panel').forEach(function(p){p.classList.remove('active');});
+    set.querySelectorAll('.day-tab').forEach(function(t){t.classList.remove('active');});
+    document.getElementById('panel-'+day).classList.add('active');
+    btn.classList.add('active');
+  }
+  function switchDay2(day,btn){
+    var set=document.getElementById('week-produktif');
+    set.querySelectorAll('.schedule-panel').forEach(function(p){p.classList.remove('active');});
+    set.querySelectorAll('.day-tab').forEach(function(t){t.classList.remove('active');});
+    document.getElementById('panel-'+day).classList.add('active');
+    btn.classList.add('active');
+  }
+    function filterSiswa(q){
+    var lq=q.toLowerCase().trim();
+    var cards=document.querySelectorAll('#gridSiswa .siswa-card');
+    var count=0;
+    cards.forEach(function(card){
+      var match=!lq||(card.getAttribute('data-nama')||'').toLowerCase().indexOf(lq)>-1;
+      card.style.display=match?'':'none';
+      if(match)count++;
+    });
+    document.getElementById('totalSiswa').textContent=lq?count:40;
+    var empty=document.getElementById('siswaEmpty');
+    if(empty)empty.style.display=count===0?'block':'none';
+  }
+
+  // Efek tilt 3D halus saat kursor di atas kartu siswa
+  document.querySelectorAll('.siswa-card').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-0.5;
+      var y=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform='translateY(-6px) rotateX('+(-y*8).toFixed(2)+'deg) rotateY('+(x*8).toFixed(2)+'deg)';
+    });
+    card.addEventListener('mouseleave',function(){card.style.transform='';});
+  });
+
+  function openLightbox(src,caption){var lb=document.getElementById('lightbox');var img=document.getElementById('lightboxImg');var cap=document.getElementById('lightboxCaption');if(src){img.src=src;img.style.display='block';}else{img.style.display='none';}cap.textContent=caption||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+
+  document.querySelectorAll('.gallery-item').forEach(function(item){
+    item.addEventListener('click',function(){
+      var img=item.querySelector('img');
+      var src=item.getAttribute('data-src')||(img?img.src:'');
+      var capEl=item.querySelector('.gallery-caption');
+      var cap=item.getAttribute('data-caption')||(capEl?capEl.textContent.trim():'');
+      openLightbox(src,cap);
+    });
+  });
+
+  // -- Progress bar ------------------------------------------------------
+  var pb=document.getElementById('progress-bar');
+  var bt=document.getElementById('back-top');
+  window.addEventListener('scroll',function(){
+    var s=document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    if(pb)pb.style.width=(h>0?(s/h*100):0)+'%';
+    // navbar shrink
+    document.querySelector('.navbar').classList.toggle('scrolled',s>60);
+    // back-to-top
+    if(bt)bt.classList.toggle('visible',s>300);
+  },{passive:true});
+
+  // -- Count-up animation ------------------------------------------------
+  var countDone=false;
+  function runCountUp(){
+    if(countDone)return;
+    var nums=document.querySelectorAll('.hero-stat-num[data-count]');
+    if(!nums.length)return;
+    var heroRect=document.getElementById('home').getBoundingClientRect();
+    if(heroRect.top<window.innerHeight&&heroRect.bottom>0){
+      countDone=true;
+      nums.forEach(function(el){
+        var target=parseInt(el.getAttribute('data-count'),10);
+        var start=0,dur=1400,startTime=null;
+        function step(ts){
+          if(!startTime)startTime=ts;
+          var p=Math.min((ts-startTime)/dur,1);
+          var eased=1-Math.pow(1-p,3);
+          el.textContent=Math.round(eased*target);
+          if(p<1)requestAnimationFrame(step);
+          else el.textContent=target;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  }
+  window.addEventListener('scroll',runCountUp,{passive:true});
+  setTimeout(runCountUp,400);
+
+  // -- Ripple effect -----------------------------------------------------
+  document.querySelectorAll('.btn-primary,.btn-ghost,.btn-instagram,.day-tab,.week-tab').forEach(function(el){
+    el.addEventListener('click',function(e){
+      var r=el.getBoundingClientRect();
+      var x=e.clientX-r.left,y=e.clientY-r.top;
+      var size=Math.max(r.width,r.height)*1.5;
+      var rp=document.createElement('span');
+      rp.className='ripple-circle';
+      rp.style.cssText='width:'+size+'px;height:'+size+'px;left:'+(x-size/2)+'px;top:'+(y-size/2)+'px';
+      el.appendChild(rp);
+      setTimeout(function(){rp.remove();},600);
+    });
+  });
+
+  // -- Tilt parallax on cards --------------------------------------------
+  document.querySelectorAll('.gallery-item').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var cx=(e.clientX-r.left)/r.width-0.5;
+      var cy=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform='perspective(600px) rotateY('+(cx*10)+'deg) rotateX('+(-cy*7)+'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='';
+    });
+  });
+
+
+</script>
+</body>
+</html>
